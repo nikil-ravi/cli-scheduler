@@ -8,12 +8,17 @@ public class Args {
     @Parameter
     private List<String> parameters = new ArrayList<>();
 
-    @Parameter(names = { "-task"}, description = "Name of the task")
-    private String taskName  = "";
+    @Parameter(names={"--start", "-s"})
+    int startTime = -1;
 
-    @Parameter(names = "-s", description = "Start time")
-    private double startTime = 0;
+    @Parameter(names={"--end", "-e"})
+    int endTime = -1;
 
-    @Parameter(names = "-e", description = "Debug mode")
-    private double endTime = 0;
+    @Parameter(names={"--task", "-t"})
+    String taskName;
+
+    public void run() {
+        System.out.printf("%d %d", startTime, endTime);
+        System.out.println(" " + taskName);
+    }
 }

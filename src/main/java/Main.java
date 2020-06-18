@@ -1,28 +1,26 @@
 import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
 
 public class Main {
 
-    @Parameter(names={"--start", "-s"})
-    int startTime;
-    @Parameter(names={"--end", "-e"})
-    int endTime;
-    @Parameter(names={"--task", "-t"})
-    String taskName;
-
     public static void main(String[] argv) {
-
-        Main main = new Main();
+        Args args = new Args();
         JCommander.newBuilder()
-                .addObject(main)
+                .addObject(args)
                 .build()
                 .parse(argv);
-        main.run();
+        args.run();
 
+        Task task;
+        System.out.println(args.endTime);
+        double timeSpent = 0;
+        if (args.endTime < 0) {
+            task = new Task(args.startTime);
+        } else {
+            task = new Task(args.startTime, args.endTime);
+        }
+
+        timeSpent = task.CalculateTimeElapsed();
+        System.out.println(timeSpent);
     }
 
-    public void run() {
-        System.out.printf("%d %d", startTime, endTime);
-        System.out.println(" " + taskName);
-    }
 }
