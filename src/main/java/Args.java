@@ -9,10 +9,10 @@ public class Args {
     private List<String> parameters = new ArrayList<>();
 
     @Parameter(names={"--start", "-s"})
-    int startTime = -1;
+    long startTime = -1;
 
     @Parameter(names={"--end", "-e"})
-    int endTime = -1;
+    long endTime = -1;
 
     @Parameter(names={"--task", "-t"})
     String taskName;

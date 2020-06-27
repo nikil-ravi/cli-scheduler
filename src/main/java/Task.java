@@ -19,12 +19,5 @@ public class Task {
         System.out.println(System.currentTimeMillis());
     }
 
-    public double CalculateTimeElapsed() {
-        if (endTime < 0) {
-            endTime = System.currentTimeMillis() / 1000000;
-            System.out.println(endTime);
-        }
-        System.out.println("EndTime: " + endTime + " StartTime: " + startTime + " Dif.: ");
-        return endTime - startTime;
-    }
+
 }
